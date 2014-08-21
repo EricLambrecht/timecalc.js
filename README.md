@@ -12,8 +12,8 @@ timecalc.js
     ```javascript
     $('#time-input').timecalc( $('#time-output') );
     ```
-
-The total time is now bind to `$('#time-output')`. It will be refreshed in as soon as the input changes.
+    
+    The total time is now bind to `$('#time-output')`. It will be refreshed in as soon as the input changes.
 	
 3. Or customize it:
     ```javascript
