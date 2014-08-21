@@ -34,7 +34,7 @@ Try it here: http://makhani.de/timecalc (will soon be updated!)
 	
 ### Advanced API-Usage
 
-You can also handle the update event yourself and do with whatever you want to do with the data.
+You can also handle the update event yourself and do with whatever you want to do with the data.  
 Here are some examples: 
 
 ```javascript
