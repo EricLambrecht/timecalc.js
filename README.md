@@ -26,7 +26,7 @@ $('#time-input').on('timecalcupdate', function ( event ) {
 ```
 
 3. You can go even further:
- ```javascript
+```javascript
 $('#time-input').timecalc();
 $('#time-input').on('timecalcupdate', function ( event ) {
   $('#time-output').empty();		
