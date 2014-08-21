@@ -2,7 +2,7 @@ timecalc.js
 ===========
 
 ### Try it now!
-If you're just here to calculate some times, go for it!
+If you're just here to calculate some times, go for it!  
 Try it here: http://makhani.de/timecalc (will soon be updated!)
 
 ### API-Usage:  
