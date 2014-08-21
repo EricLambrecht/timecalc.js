@@ -12,10 +12,10 @@
         "textarea"
     ],
     "author": {
-		"name": "Eric Lambrecht",
-		"email": "ericlambrecht.hh@gmail.com",
-		"url": "http://makhani.de"
-	},
+	"name": "Eric Lambrecht",
+	"email": "ericlambrecht.hh@gmail.com",
+	"url": "http://makhani.de"
+    },
     "version": "0.8.0",
     "main": "timecalc.js",
     "homepage": "http://makhani.de/timecalc",
