@@ -27,12 +27,9 @@ timecalc.js
     ```javascript
     $('#time-input').timecalc();
     $('#time-input').on('timecalcupdate', function ( event ) {
-      $('#time-output').empty();		
-      $('#time-output').append(
-        "<p class=\"hr\">"  + event.hours   + "</p>" +   
-        "<p class=\"min\">" + event.minutes + "</p>" + 
-        "<p class=\"sec\">" + event.seconds + "</p>" 
-      );
+      $('#time-output-hr').text(event.hours);
+      $('#time-output-min').text(event.minutes);
+      $('#time-output-sec').text(event.seconds);
     });
     ```
 
