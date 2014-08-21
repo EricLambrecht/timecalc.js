@@ -16,6 +16,10 @@
 	"email": "ericlambrecht.hh@gmail.com",
 	"url": "http://makhani.de"
     },
+    "licenses": {
+    	"type": "MIT",
+    	"url": "https://github.com/EricLambrecht/timecalc.js/blob/master/LICENSE.txt"
+    },
     "version": "0.8.0",
     "main": "timecalc.js",
     "homepage": "http://makhani.de/timecalc",
