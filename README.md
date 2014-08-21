@@ -2,22 +2,22 @@ timecalc.js
 ===========
 
 ### Usage:  
-First: Include jQuery and timecalc.js:
+1. Include jQuery and timecalc.js:
 
 ```html
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
 <script src="js/timecalc.js"></script>
 ```
 
-1. Let timecalc do all the work:
+2. Let timecalc do all the work:
 
 ```javascript
 $('#time-input').timecalc( $('#time-output') );
 ```
 
-The total time is now bind to '#time-output'. It will be refreshed in as soon as the input changes.
+The total time is now bind to `$('#time-output')`. It will be refreshed in as soon as the input changes.
 	
-2. Or customize it:
+3. Or customize it:
 ```javascript
 $('#time-input').timecalc();
 $('#time-input').on('timecalcupdate', function ( event ) {
@@ -25,7 +25,7 @@ $('#time-input').on('timecalcupdate', function ( event ) {
 }
 ```
 
-3. You can go even further:
+4. You can go even further:
 ```javascript
 $('#time-input').timecalc();
 $('#time-input').on('timecalcupdate', function ( event ) {
