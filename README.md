@@ -14,7 +14,8 @@ Try it here: http://makhani.de/timecalc (will soon be updated!)
     * `:1:40` - 0 Hours, 1 Minute, 40 Seconds
 * hh as decimal value
     * `4` - 4 Hours
-    * `2.5` - 2, Hours, 30 Minutes
+    * `2.5` - 2 Hours, 30 Minutes
+    * '2,5` - 2 Hours, 30 Minutes (European Format)
 * hh Hours mm Minutes ss Seconds
 
 ### API-Usage:  
