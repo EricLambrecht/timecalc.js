@@ -9,12 +9,12 @@ Try it here: http://makhani.de/timecalc (will soon be updated!)
 * `hh:mm:ss`
     * ` 1:40:15` - 1 Hour, 40 Minutes, 15 Seconds
     * `03:2:7`  - 3 Hours, 2 Minutes, 7 Seconds
-    * 02:180:75 - 4 Hours, 1 Minute, 15 Seconds
-    * 1:40 - 1 Hour, 40 Minutes, 0 Seconds
-    * :1:40 - 0 Hours, 1 Minute, 40 Seconds
+    * `02:180:75` - 4 Hours, 1 Minute, 15 Seconds
+    * `1:40` - 1 Hour, 40 Minutes, 0 Seconds
+    * `:1:40` - 0 Hours, 1 Minute, 40 Seconds
 * hh as decimal value
-    * 4 - 4 Hours
-    * 2.5 - 2, Hours, 30 Minutes
+    * `4` - 4 Hours
+    * `2.5` - 2, Hours, 30 Minutes
 * hh Hours mm Minutes ss Seconds
 
 ### API-Usage:  
