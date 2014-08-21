@@ -1,7 +1,11 @@
 timecalc.js
 ===========
 
-### Usage:  
+### Try it now!
+If you're just here to calculate some times, go for it!
+Try it here: http://makhani.de/timecalc (will soon be updated!)
+
+### API-Usage:  
 1. Include jQuery and timecalc.js:
     ```html
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
@@ -32,9 +36,6 @@ timecalc.js
       $('#time-output-sec').text(event.seconds);
     });
     ```
-
-### Demo:  
-http://makhani.de/timecalc (will soon be updated!)
 
 ### Download:  
 coming soon!
