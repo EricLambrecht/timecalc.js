@@ -1,0 +1,32 @@
+{
+    "name": "timecalc",
+    "title": "timecalc.js",
+    "description": "Parses multi line content for times and calculates a total time duration - all that in realtime (No pun intended).",
+    "keywords": [
+        "time",
+        "duration",
+        "calculation",
+        "realtime",
+        "total",
+        "input",
+        "textarea"
+    ],
+    "author": {
+		"name": "Zeno Rocha",
+		"email": "zno.rocha@gmail.com",
+		"url": "http://makhani.de"
+	},
+    "version": "0.8.0",
+    "main": "timecalc.js",
+    "homepage": "http://makhani.de/timecalc",
+    "demo": "http://makhani.de/timecalc",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/EricLambrecht/timecalc.js.git"
+    },
+    "dependencies": {
+        "jquery": ">=1.7"
+    }
+}
+
+    
