@@ -4,14 +4,16 @@
  *  Parses multi line content for times and calculates a total time duration.
  *
  *  Author: Eric Lambrecht
- *	Version: 0.8.0
  *  License: MIT
 */
 
 ;(function ($, window, undefined) {
     
     "use strict";
-    var TimeCalculator, Time;
+    var TimeCalculator, Time,
+        defaults = {
+            'line-delimiter': '\n',
+        };
     
     /*
      * Custom jQuery function '$.timecalc()'. 
@@ -24,11 +26,6 @@
      */ 
     $.fn.timecalc = function ( options ) {
         var args = arguments;
-        
-        var settings = $.extend( {
-          //'location'         : 'top',
-          //'background-color' : 'blue'
-        }, options);
 
         if (options === undefined || typeof options === 'object' ) {
             return this.each(function () {
@@ -79,12 +76,23 @@
     /*
      * constructor
      */
-    TimeCalculator = function (inputElement, outputElement) {
+    TimeCalculator = function (inputElement, options) {
+        
         this.$input = $(inputElement);
-        this.$output = outputElement ? $(outputElement) : false;
+        this.$output = false;
+        this._settings = defaults;
+        
+        // If we were given a jQuery object, we'll be using it as the output element.
+        if (options instanceof jQuery) {
+            this.$output = options;
+        }
+        // Otherwise some kind of settings must be given...
+        else {
+            this._settings = $.extend( {}, defaults, options);
+        }
+        
         this.total = new Time();
         this.init();
-        //alert(this.inputElement + this.outputDigits);
     };
     
     TimeCalculator.prototype = {
@@ -107,13 +115,15 @@
          *	1. Values followed by name/description
          *	2. Decimal representation of hours (e.g. dot- or comma-seperated)
          *	3. Colon-seperated time representation (hh:mm:ss)
+         *
+         * Accepts a custom input string parameter, which can be parsed instead and independantly.
          */
-        parseInput : function () { // input als parameter
+        parseInput : function ( customInputString ) { 
 
             // get text-area content 
             // TODO: check if element is textarea at all (in init or constructor)
-            var input = this.$input.val(),
-                lines = input.split('\n'),
+            var input = customInputString ? customInputString : this.$input.val(),
+                lines = input.split( this._settings['line-delimiter'] ),
                 hours,
                 mins,
                 secs,
