@@ -1,7 +1,7 @@
 {
     "name": "timecalc",
     "title": "timecalc.js",
-    "version": "0.8.1",
+    "version": "0.9.1",
     "description": "Parses multi line content for times and calculates a total time duration - all that in realtime (No pun intended).",
     "keywords": [
         "time",

@@ -42,7 +42,7 @@
                 }
             });
         }
-        else if (typeof options === 'string' && options[0] !== '_' && option !== 'init') {
+        else if (typeof options === 'string' && options[0] !== '_' && options !== 'init') {
             // Cache the method call
             // to make it possible
             // to return a value
@@ -106,6 +106,20 @@
                 this.parseInput();
                 this.update();
             }, this));
+        },
+        
+        /*
+         * Sets a value, after initialization.
+         */
+        option: function (name, value) {
+            if ( value === undefined ) {
+                // getter
+                return this._settings[name];
+            }
+            else {
+                // setter
+                this._settings[name] = value;  
+            }
         },
         
         /**
