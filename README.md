@@ -47,9 +47,9 @@ $('#time-input').on('timecalcupdate', function ( event ) {
 ```javascript
 $('#time-input').timecalc();
 $('#time-input').on('timecalcupdate', function ( event ) {
-   $('#time-output-hr').text(event.hours);
-   $('#time-output-min').text(event.minutes);
-   $('#time-output-sec').text(event.seconds);
+   $('#time-output-hr').text(event.hours + ' Hours');
+   $('#time-output-min').text(event.minutes + ' Minutes');
+   $('#time-output-sec').text(event.seconds + ' Seconds');
 });
 ```
 
