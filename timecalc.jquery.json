@@ -1,7 +1,7 @@
 {
     "name": "timecalc",
     "title": "timecalc.js",
-    "version": "0.9.3",
+    "version": "0.9.4",
     "description": "Parses multi line content for times and calculates a total time duration - all that in realtime (No pun intended).",
     "keywords": [
         "time",
@@ -24,8 +24,8 @@
         }
     ],
     "main": "timecalc.js",
-    "homepage": "http://makhani.de/timecalc",
-    "demo": "http://makhani.de/timecalc",
+    "homepage": "http://makhani.de/timecalc.js/",
+    "demo": "http://makhani.de/timecalc/",
     "repository": {
         "type": "git",
         "url": "https://github.com/EricLambrecht/timecalc.js.git"
