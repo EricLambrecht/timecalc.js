@@ -1,7 +1,7 @@
 {
     "name": "timecalc",
     "title": "timecalc.js",
-    "version": "0.9.1",
+    "version": "0.9.2",
     "description": "Parses multi line content for times and calculates a total time duration - all that in realtime (No pun intended).",
     "keywords": [
         "time",
@@ -30,6 +30,8 @@
         "type": "git",
         "url": "https://github.com/EricLambrecht/timecalc.js.git"
     },
+    "bugs": "https://github.com/EricLambrecht/timecalc.js/issues",
+    "docs" "https://github.com/EricLambrecht/timecalc.js#readme",
     "dependencies": {
         "jquery": ">=1.7"
     }
