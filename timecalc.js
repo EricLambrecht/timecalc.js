@@ -165,7 +165,7 @@
                     while (stringHasRightFormat);
                 }
 
-                // if line has comma/dot (..treat it as hours in decimal representation)
+                // if line has comma or dot, we treat it as hours in decimal representation.
                 else if (lines[i].indexOf(",") !== -1 || lines[i].indexOf(".") !== -1) {
                     var inputNumber = parseFloat(lines[i].replace(",", "."));		
                     mins = Math.round(inputNumber*60) + mins;
@@ -189,11 +189,12 @@
          */
         update : function () {
             
-            // write time to output element.
             var formattedTime;
+            // switch over different types of (user choses) output-formats.
             formattedTime = this.total.getHours() + ':' + this.total.getMinutes() + ':' + this.total.getSeconds();
+            
             if (this.$output) {
-                // switch over different types of (user choses) output-formats.
+                // write time to output element.
                 if($output.is('input, select, textarea')) {
                     this.$output.val(formattedTime);
                 }
@@ -202,7 +203,7 @@
                 }
             }
             
-            // fire 'timecalcupdate' event.
+            // fire the 'timecalcupdate' event.
             this.$input.trigger({
                 type: 'timecalcupdate', 
                 hours: this.total.getHours(),
@@ -281,24 +282,5 @@
             this.minutes  += 60;
         }
     };
-    
-    // window.TimeCalculatorTime = Time; // Add data type Time as TimeCalculatorTime with global scope.
-   
-    /*
-     * Custom global function 'timecalc()'.
-     *   Example: TimeCalculatorTime time = timecalc($("time-input"));
-     * The input of a DOM element is returned as a TimeCalculatorTime-object.
-     */ 
-//    window.timecalc = function (inputDOMElement) {
-//        var instance = $.data(this, 'timecalc'); // is timecalc data already stored?
-//        if ( instance ) {
-//            instance.init();
-//        }
-//        else {
-//            instance = $.data(this, 'timecalc', new TimeCalculator(inputDOMElement));
-//        }		
-//		return instance.total;
-//	};
-    
-    
+      
 }) (jQuery, window);
