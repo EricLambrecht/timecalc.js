@@ -3,7 +3,7 @@ timecalc.js
 
 ### Try it now!
 If you're just here to calculate some times, go for it!  
-Try it here: http://makhani.de/timecalc (will soon be updated!)
+Try it here: http://makhani.de/timecalc
 
 ### Currently supported time formats
 * `hh:mm:ss`
@@ -56,7 +56,7 @@ $('#time-input').on('timecalcupdate', function ( event ) {
 (will be updated in the future).
 
 ### Download:  
-coming soon!
+http://plugins.jquery.com/timecalc/
 
 
 © 2014 Eric Lambrecht (http://makhani.de)
