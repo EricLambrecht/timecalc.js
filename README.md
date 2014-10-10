@@ -54,7 +54,7 @@ $.timecalc( "33:70:12 - 1:20:3", options);
 There are currently 3 options you can modify:
 * **time-delimiter**: specifies the char(s), that split(s) up the times. Default is _'\n'_.
 * **return-formatted**: (_true/false_) whether or not a formatted string is returned. Only applies to direct-input-method. Default is _true_.
-* **natlang-support**: (_true/false_) if false, timecalc wont pare for natural language. Default is _true_.
+* **natlang-support**: (_true/false_) if false, timecalc wont parse for natural language. Default is _true_.
 	
 ### Some more examples
 
