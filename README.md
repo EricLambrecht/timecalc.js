@@ -42,19 +42,19 @@ Try it here: http://makhani.de/timecalc
 
 You can customize timecalc's options as follows:
 ```javascript
-$('#time-input').timecalc( "option", "line-delimiter", "-"); // set line-delimiter to '-'.
+$('#time-input').timecalc( "option", "time-delimiter", "-"); // set time-delimiter to '-'.
 ```  
 
 or if you're parsing without DOM-elements:
 ```javascript
-var options = {line-delimiter: '-'};
+var options = {time-delimiter: '-'};
 $.timecalc( "33:70:12 - 1:20:3", options);
 ```  
 
 There are currently 3 options you can modify:
-* line-delimiter: specifies the char(s), that splits up the times. Default is '\n'.
-* return-formatted: (true/false) whether or not a formatted string is returned. Only applies to direct-input-method. Default is true.
-* natlang-support: (true/false) if false, timecalc wont pare for natural language. Default is true.
+* *time-delimiter*: specifies the char(s), that split(s) up the times. Default is _'\n'_.
+* *return-formatted*: (_true/false_) whether or not a formatted string is returned. Only applies to direct-input-method. Default is _true_.
+* *natlang-support*: (_true/false_) if false, timecalc wont pare for natural language. Default is _true_.
 	
 ### Some more examples
 

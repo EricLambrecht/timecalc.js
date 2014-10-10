@@ -12,7 +12,7 @@
     "use strict";
     var TimeCalculator, Time,
         defaults = {
-            'line-delimiter': '\n',
+            'time-delimiter': '\n',
             'natlang-support': true,
             'return-formatted': true,
         };
@@ -145,7 +145,8 @@
             }
             else {
                 // setter
-                this._settings[name] = value;  
+                this._settings[name] = value;
+                return value;
             }
         },
         
@@ -162,7 +163,7 @@
         parseInput : function ( customInputString ) { 
 
             var input = customInputString ? customInputString : (this.$input ? this.$input.val() : ""),
-                lines = input.split( this._settings['line-delimiter'] ),
+                lines = input.split( this._settings['time-delimiter'] ),
                 hours,
                 mins,
                 secs,
