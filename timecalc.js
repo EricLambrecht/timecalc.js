@@ -14,6 +14,7 @@
         defaults = {
             'line-delimiter': '\n',
             'natlang-support': true,
+            'return-formatted': true,
         };
     
     /*
@@ -74,12 +75,35 @@
         }
     }
     
+    $.timecalc = function (customInputString, options) {
+        // "stand-alone" version for parsing custom strings
+        if(customInputString) {
+            // this is not a jQuery collection / DOM-Element but a direct call to timecalc
+            var tempCalc, 
+                method, 
+                params;
+            
+            if(options !== undefined) {
+                tempCalc = new TimeCalculator(false, options);   
+            }
+            else {
+                tempCalc = new TimeCalculator(false);
+            }
+
+            return tempCalc.parseInput(customInputString);
+        }
+        else {
+            console.error("no input string to parse!");
+            return false;
+        }
+    }
+    
     /*
      * constructor
      */
     TimeCalculator = function (inputElement, options) {
         
-        this.$input = $(inputElement);
+        this.$input = inputElement ? $(inputElement) : false;
         this.$output = false;
         this._settings = defaults;
         
@@ -87,7 +111,7 @@
         if (options instanceof jQuery) {
             this.$output = options;
         }
-        // Otherwise some kind of settings must be given...
+        // Otherwise some kind of settings must have been given...
         else {
             this._settings = $.extend( {}, defaults, options);
         }
@@ -102,11 +126,13 @@
          * Init the plugin with a keyup event.
          */
         init : function () {
-            // Parse input on key up.
-            this.$input.on("keyup", $.proxy(function () {
-                this.parseInput();
-                this.update();
-            }, this));
+            if(this.$input) {
+                // Parse input on key up.
+                this.$input.on("keyup", $.proxy(function () {
+                    this.parseInput();
+                    this.update();
+                }, this));
+            }
         },
         
         /*
@@ -133,18 +159,14 @@
          *
          * Accepts a custom input string parameter, which can be parsed instead and independantly.
          */
-        parseInput : function ( customInputString, formatted ) { 
+        parseInput : function ( customInputString ) { 
 
-            // get text-area content 
-            // TODO: check if element is textarea at all (in init or constructor)
-            var input = customInputString ? customInputString : this.$input.val(),
+            var input = customInputString ? customInputString : (this.$input ? this.$input.val() : ""),
                 lines = input.split( this._settings['line-delimiter'] ),
                 hours,
                 mins,
                 secs,
                 i;
-            
-            if (typeof formatted === 'undefined') formatted = true;
             
             // reset _all_ previous calculated times.
             this.total = new Time();
@@ -157,8 +179,9 @@
                 secs  = this.total.getSeconds();
 
                 // if values are followed by description:
-                if(this._settings['natlang-support']) {
-                    if (lines[i].indexOf("hour") !== -1 || lines[i].indexOf("minute") !== -1 || lines[i].indexOf("second") !== -1) {
+
+                if (lines[i].indexOf("hour") !== -1 || lines[i].indexOf("minute") !== -1 || lines[i].indexOf("second") !== -1) {
+                    if(this._settings['natlang-support']) {
                         var stringHasRightFormat,
                             match,
                             parts,
@@ -214,7 +237,7 @@
             
             // return if custom input was given
             if(typeof customInputString !== 'undefined') {
-                if(formatted) {
+                if(this._settings['return-formatted']) {
                     return this.getFormattedTime();    
                 }
                 else {
