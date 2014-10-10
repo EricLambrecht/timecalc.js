@@ -13,6 +13,7 @@
     var TimeCalculator, Time,
         defaults = {
             'line-delimiter': '\n',
+            'natlang-support': true,
         };
     
     /*
@@ -132,7 +133,7 @@
          *
          * Accepts a custom input string parameter, which can be parsed instead and independantly.
          */
-        parseInput : function ( customInputString ) { 
+        parseInput : function ( customInputString, formatted ) { 
 
             // get text-area content 
             // TODO: check if element is textarea at all (in init or constructor)
@@ -142,6 +143,8 @@
                 mins,
                 secs,
                 i;
+            
+            if (typeof formatted === 'undefined') formatted = true;
             
             // reset _all_ previous calculated times.
             this.total = new Time();
@@ -154,39 +157,41 @@
                 secs  = this.total.getSeconds();
 
                 // if values are followed by description:
-                if (lines[i].indexOf("hour") !== -1 || lines[i].indexOf("minute") !== -1 || lines[i].indexOf("second") !== -1) {
-                    var stringHasRightFormat,
-                        match,
-                        parts,
-                        tmpLine = lines[i],
-                        partIdx = 0;
+                if(this._settings['natlang-support']) {
+                    if (lines[i].indexOf("hour") !== -1 || lines[i].indexOf("minute") !== -1 || lines[i].indexOf("second") !== -1) {
+                        var stringHasRightFormat,
+                            match,
+                            parts,
+                            tmpLine = lines[i],
+                            partIdx = 0;
 
-                    do {
-                        // Search for (first) number
-                        match = tmpLine.match(/[0-9]/g);
-                        parts = tmpLine.split(' ');
-                        stringHasRightFormat = match != null && partIdx + 1 < parts.length;
-                        if (stringHasRightFormat) {
-                            var currentNumber = parts[partIdx]; 
-                            var currentTimeUnit = parts[partIdx + 1].toString().toLowerCase();
-                            switch(currentTimeUnit) {
-                                case "hour":
-                                case "hours":
-                                    hours = parseInt(currentNumber) + hours;
-                                    break;
-                                case "minute":
-                                case "minutes":
-                                    mins = parseInt(currentNumber) + mins;
-                                    break;	
-                                case "second":
-                                case "seconds":
-                                    secs = parseInt(currentNumber) + secs;
-                                    break;								
+                        do {
+                            // Search for (first) number
+                            match = tmpLine.match(/[0-9]/g);
+                            parts = tmpLine.split(' ');
+                            stringHasRightFormat = match != null && partIdx + 1 < parts.length;
+                            if (stringHasRightFormat) {
+                                var currentNumber = parts[partIdx]; 
+                                var currentTimeUnit = parts[partIdx + 1].toString().toLowerCase();
+                                switch(currentTimeUnit) {
+                                    case "hour":
+                                    case "hours":
+                                        hours = parseInt(currentNumber) + hours;
+                                        break;
+                                    case "minute":
+                                    case "minutes":
+                                        mins = parseInt(currentNumber) + mins;
+                                        break;	
+                                    case "second":
+                                    case "seconds":
+                                        secs = parseInt(currentNumber) + secs;
+                                        break;								
+                                }
+                                partIdx += 2;
                             }
-                            partIdx += 2;
                         }
+                        while (stringHasRightFormat);
                     }
-                    while (stringHasRightFormat);
                 }
 
                 // if line has comma or dot, we treat it as hours in decimal representation.
@@ -206,6 +211,16 @@
                 // add/set updated time
                 this.total.setTime(hours, mins, secs);
             }
+            
+            // return if custom input was given
+            if(typeof customInputString !== 'undefined') {
+                if(formatted) {
+                    return this.getFormattedTime();    
+                }
+                else {
+                    return this.getTotalTime();   
+                }
+            }
         },
         
         /*
@@ -215,7 +230,7 @@
             
             var formattedTime;
             // switch over different types of (user choses) output-formats.
-            formattedTime = this.total.getHours() + ':' + this.total.getMinutes() + ':' + this.total.getSeconds();
+            formattedTime = this.getFormattedTime();
             
             if (this.$output) {
                 // write time to output element.
@@ -236,6 +251,14 @@
                 formattedTime: formattedTime,
             }); 
             
+        },
+        
+        getFormattedTime : function() {
+            return this.total.getHours() + ':' + this.total.getMinutes() + ':' + this.total.getSeconds();
+        },
+        
+        getTotalTime : function() {
+            return this.total;
         }
     };
 
