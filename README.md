@@ -29,9 +29,9 @@ Try it here: http://makhani.de/timecalc
     ```javascript
     $('#time-input').timecalc( $('#time-output') );
     ```    
-    The total time is now bind to `$('#time-output')`. It will be refreshed in as soon as the input changes.
+    The total time is now bind to `$('#time-output')`. It will be refreshed in as soon as the input changes!
     
-    OR
+    **OR**
     
 3. Direct-input-method:
     ```javascript
